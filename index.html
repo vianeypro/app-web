@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Agregar tarea</title>
+    <link rel="stylesheet" type="text/css" href="estilo.css">
+</head>
+<body>
+    <h1>Agregar tarea</h1>
+    <form action="add_task.php" method="post">
+        <label for="task_name">Nombre de la tarea:</label>
+        <input type="text" id="task_name" name="task_name"><br><br>
+        <label for="task_description">Descripción de la tarea:</label>
+        <textarea id="task_description" name="task_description"></textarea><br><br>
+        <input type="submit" value="Agregar tarea">
+    </form>
+    
+    <script>
+        document.querySelector("form").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            var taskName = document.querySelector("#task_name").value;
+            var taskDescription = document.querySelector("#task_description").value;
+
+            if (taskName === "" || taskDescription === "") {
+                alert("Por favor llene todos los campos");
+            } else {
+                this.submit();
+            }
+        });
+    </script>
+</body>
+</html>
